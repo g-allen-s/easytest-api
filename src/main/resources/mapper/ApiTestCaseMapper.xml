@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.ApiTestCaseMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.ApiTestCase" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="api_tc_code" property="apiTcCode" jdbcType="VARCHAR" />
+    <result column="api_tc_name" property="apiTcName" jdbcType="VARCHAR" />
+    <result column="api_tc_priority" property="apiTcPriority" jdbcType="CHAR" />
+    <result column="api_tc_status" property="apiTcStatus" jdbcType="TINYINT" />
+    <result column="api_module" property="apiModule" jdbcType="INTEGER" />
+    <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="selectOneByTcCodeNotId" resultType="ApiTestCase">
+    select * from test_api_test_case where api_tc_code = #{apiTcCode} and id != #{id}
+  </select>
+
+  <select id="count" resultType="int">
+    select count(1) from test_api_test_case where 1 = 1
+    <if test="params.apiTcName != null and params.apiTcName != '' ">
+      and api_tc_name like concat('%', #{params.apiTcName}, '%')
+    </if>
+    <if test="params.apiTcCode != null and params.apiTcCode != '' ">
+      and api_tc_code like concat('%', #{params.apiTcCode}, '%')
+    </if>
+  </select>
+
+  <select id="list" resultType="ApiTestCase">
+    select * from test_api_test_case where 1 = 1
+    <if test="params.apiTcName != null and params.apiTcName != '' ">
+      and api_tc_name like concat('%', #{params.apiTcName}, '%')
+    </if>
+    <if test="params.apiTcCode != null and params.apiTcCode != '' ">
+      and api_tc_code like concat('%', #{params.apiTcCode}, '%')
+    </if>
+    order by id desc
+    limit #{pageNum}, #{pageSize}
+  </select>
+
+</mapper>

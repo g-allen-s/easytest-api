@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.easytest.dao.TestJenkinsMapper">
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.TestJenkins">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="jenkins_name" jdbcType="VARCHAR" property="jenkinsName" />
+    <result column="jenkins_url" jdbcType="VARCHAR" property="jenkinsUrl" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="command_type" jdbcType="TINYINT" property="commandType" />
+    <result column="command_suffix" jdbcType="VARCHAR" property="commandSuffix" />
+    <result column="test_command" jdbcType="VARCHAR" property="testCommand" />
+    <result column="create_user_id" jdbcType="INTEGER" property="createUserId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+
+  <select id="count" resultType="int">
+    select count(1) from test_jenkins htj where htj.create_user_id =  #{params.createUserId}
+
+    <if test="params.name != null and params.name != '' ">
+        and htj.name = #{params.name}
+    </if>
+
+  </select>
+
+  <select id="list" resultType="TestJenkins">
+    select * from test_jenkins htj where htj.create_user_id =  #{params.createUserId}
+
+    <if test="params.name != null and params.name != '' ">
+      and htj.name = #{params.name}
+    </if>
+    order by htj.id desc
+    limit #{pageNum}, #{pageSize}
+  </select>
+
+
+</mapper>

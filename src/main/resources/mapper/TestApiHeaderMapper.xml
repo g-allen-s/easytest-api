@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.TestApiHeaderMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.TestApiHeader" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uid" property="uid" jdbcType="CHAR" />
+    <result column="header_key" property="headerKey" jdbcType="VARCHAR" />
+    <result column="header_value" property="headerValue" jdbcType="VARCHAR" />
+    <result column="header_type" property="headerType" jdbcType="VARCHAR" />
+    <result column="api_id" property="apiId" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectById" resultType="TestApiHeader">
+    select * from test_api_header where api_id = #{id} and header_type = #{headerType}
+  </select>
+
+</mapper>

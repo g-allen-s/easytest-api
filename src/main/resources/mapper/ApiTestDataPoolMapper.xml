@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.ApiTestDataPoolMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.ApiTestDataPool" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uid" property="uid" jdbcType="CHAR" />
+    <result column="datapool_name" property="datapoolName" jdbcType="VARCHAR" />
+    <result column="datapool_param" property="datapoolParam" jdbcType="VARCHAR" />
+    <result column="tc_id" property="tcId" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

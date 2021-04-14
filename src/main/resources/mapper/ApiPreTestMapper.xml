@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.ApiPreTestMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.ApiPreTest" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uid" property="uid" jdbcType="CHAR" />
+    <result column="pre_test_method" property="preTestMethod" jdbcType="CHAR" />
+    <result column="pre_test_target" property="preTestTarget" jdbcType="VARCHAR" />
+    <result column="request_param" property="requestParam" jdbcType="VARCHAR" />
+    <result column="samples_Param" property="samplesParam" jdbcType="VARCHAR" />
+    <result column="tc_id" property="tcId" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

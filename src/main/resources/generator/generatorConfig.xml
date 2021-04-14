@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- -->
+
+<generatorConfiguration>
+    <properties resource="generator/config.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="${mapper.plugin}">
+            <property name="mappers" value="${mapper.Mapper}"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="jdbc:mysql://localhost:3306/easytest?characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai"
+                        userId="${jdbc.user}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="${targetModelPackage}" targetProject="${targetJavaProject}">
+            <property name="rootClass" value="com.my.easytest.entity.BaseEntityNew"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="${targetXMLPackage}" targetProject="${targetResourcesProject}"/>
+
+        <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}"
+                             type="XMLMAPPER"/>
+
+        <!-- 生成用户的相关类 -->
+        <!--<table schema="easytest" tableName="test_user" domainObjectName="TestUser" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!-- 生成Jenkins的相关类 -->
+        <!--<table schema="easytest" tableName="test_jenkins" domainObjectName="TestJenkins" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!-- 生成测试用例的相关类 -->
+        <!--<table schema="easytest" tableName="test_case" domainObjectName="TestCase" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="del_flag" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
+
+        <!-- 生成测试任务的相关类 -->
+        <!--<table schema="easytest" tableName="test_task" domainObjectName="TestTask" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="task_type" javaType="Integer" jdbcType="TINYINT" />-->
+            <!--<columnOverride column="status" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
+
+        <!-- 生成测试任务和用例关联的相关类 -->
+        <!--<table schema="easytest" tableName="test_task_case_rel" domainObjectName="TestTaskCaseRel" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!-- 生成测试模块的相关类 -->
+        <!--<table schema="easytest" tableName="test_module" domainObjectName="TestModule" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--&lt;!&ndash; 生成API接口的相关类 &ndash;&gt;-->
+        <!--<table schema="easytest" tableName="test_api" domainObjectName="TestApi" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!-- 生成API接口请求头的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_header" domainObjectName="TestApiHeader" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API接口请求参数的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_param" domainObjectName="TestApiParam" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API接口全局变量的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_global_variable" domainObjectName="TestApiGlobalVariable" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API接口操作的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_action" domainObjectName="TestApiAction" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API测试用例的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_test_case" domainObjectName="ApiTestCase" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API前置测试的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_pre_test" domainObjectName="ApiPreTest" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API测试用例步骤的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_test_action" domainObjectName="ApiTestAction" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API测试用例步骤断言的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_test_action_assertion" domainObjectName="ApiTestAssertion" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API测试用例步骤断言的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_test_action_samples" domainObjectName="ApiTestSample" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成API测试用例步骤断言的相关类 -->
+        <!--<table schema="easytest" tableName="test_api_test_data_pool" domainObjectName="ApiTestDataPool" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!-- 生成Jenkins的相关类 -->
+        <!--<table schema="easytest" tableName="test_jenkins" domainObjectName="TestJenkins" enableCountByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" enableUpdateByExample="false" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!-- 生成任务的相关类 -->
+        <table schema="easytest" tableName="test_task" domainObjectName="TestTask" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+
+</generatorConfiguration>

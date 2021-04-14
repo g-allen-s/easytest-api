@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.TestApiMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.TestApi" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="api_code" property="apiCode" jdbcType="VARCHAR" />
+    <result column="api_name" property="apiName" jdbcType="VARCHAR" />
+    <result column="api_method" property="apiMethod" jdbcType="CHAR" />
+    <result column="api_status" property="apiStatus" jdbcType="TINYINT" />
+    <result column="api_module" property="apiModule" jdbcType="INTEGER" />
+    <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="count" resultType="int">
+    select count(1) from test_api where 1 = 1
+    <if test="params.apiName != null and params.apiName != '' ">
+      and api_name like concat('%', #{params.apiName}, '%')
+    </if>
+    <if test="params.apiCode != null and params.apiCode != '' ">
+      and api_code like concat('%', #{params.apiCode}, '%')
+    </if>
+  </select>
+
+  <select id="list" resultType="TestApi">
+    select * from test_api where 1 = 1
+    <if test="params.apiName != null and params.apiName != '' ">
+      and api_name like concat('%', #{params.apiName}, '%')
+    </if>
+    <if test="params.apiCode != null and params.apiCode != '' ">
+      and api_code like concat('%', #{params.apiCode}, '%')
+    </if>
+    order by id desc
+    limit #{pageNum}, #{pageSize}
+  </select>
+</mapper>

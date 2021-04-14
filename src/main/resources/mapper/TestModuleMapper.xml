@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.TestModuleMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.TestModule" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
+    <result column="prd_host" property="prdHost" jdbcType="VARCHAR" />
+    <result column="pre_host" property="preHost" jdbcType="VARCHAR" />
+    <result column="sit_host" property="sitHost" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="count" resultType="int">
+    select count(1) from test_module
+    <if test="params.moduleName != null and params.moduleName != '' ">
+      where module_name like concat('%', #{params.moduleName}, '%')
+    </if>
+
+  </select>
+
+  <select id="list" resultType="TestModule">
+    select * from test_module
+    <if test="params.moduleName != null and params.moduleName != '' ">
+      where module_name like concat('%', #{params.moduleName}, '%')
+    </if>
+    order by id desc
+    limit #{pageNum}, #{pageSize}
+  </select>
+</mapper>

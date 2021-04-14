@@ -1,0 +1,7 @@
+{
+    "0_Map": {
+    	"memberId": "7018010945",
+    	"type": "category-level2",
+    	"permissionType": "brand"
+    }
+}

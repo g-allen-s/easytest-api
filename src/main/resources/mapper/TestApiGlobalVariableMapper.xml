@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.TestApiGlobalVariableMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.TestApiGlobalVariable" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uid" property="uid" jdbcType="CHAR" />
+    <result column="variable_key" property="variableKey" jdbcType="VARCHAR" />
+    <result column="variable_value" property="variableValue" jdbcType="VARCHAR" />
+    <result column="module_id" property="moduleId" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectById" resultType="TestApiGlobalVariable">
+    select * from test_api_global_variable where module_id = #{id}
+  </select>
+
+</mapper>

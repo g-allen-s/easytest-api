@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.ApiTestAssertionMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.ApiTestAssertion" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uid" property="uid" jdbcType="CHAR" />
+    <result column="assertion_type" property="assertionType" jdbcType="VARCHAR" />
+    <result column="assertion_key" property="assertionKey" jdbcType="VARCHAR" />
+    <result column="assertion_value" property="assertionValue" jdbcType="VARCHAR" />
+    <result column="test_action_id" property="testActionId" jdbcType="CHAR" />
+  </resultMap>
+</mapper>

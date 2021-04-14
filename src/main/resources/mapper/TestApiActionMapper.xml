@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.easytest.dao.TestApiActionMapper" >
+  <resultMap id="BaseResultMap" type="com.my.easytest.entity.TestApiAction" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uid" property="uid" jdbcType="CHAR" />
+    <result column="api_id" property="apiId" jdbcType="INTEGER" />
+    <result column="step_id" property="stepId" jdbcType="TINYINT" />
+    <result column="step_keyword" property="stepKeyword" jdbcType="VARCHAR" />
+    <result column="step_key" property="stepKey" jdbcType="VARCHAR" />
+    <result column="step_value" property="stepValue" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectById" resultType="TestApiAction">
+    select * from test_api_action where api_id = #{id} order by step_id asc
+  </select>
+
+</mapper>
